@@ -39,6 +39,7 @@ export function CabecalhoForm({
           <div className="input-with-button">
             <input
               id="sequencialTransacao"
+              className="mono-field"
               value={cabecalho.sequencialTransacao}
               onChange={(e) =>
                 onChangeCabecalho({ sequencialTransacao: e.target.value })
@@ -87,6 +88,7 @@ export function CabecalhoForm({
         >
           <input
             id="codigoPrestadorNaOperadora"
+            className="mono-field"
             value={cabecalho.codigoPrestadorNaOperadora}
             onChange={(e) =>
               onChangeCabecalho({ codigoPrestadorNaOperadora: e.target.value })
@@ -100,6 +102,7 @@ export function CabecalhoForm({
         >
           <input
             id="registroANS"
+            className="mono-field"
             value={cabecalho.registroANS}
             onChange={(e) => onChangeCabecalho({ registroANS: e.target.value })}
           />
@@ -108,6 +111,7 @@ export function CabecalhoForm({
         <Field label="Número do lote" htmlFor="numeroLote">
           <input
             id="numeroLote"
+            className="mono-field"
             value={lote.numeroLote}
             onChange={(e) => onChangeLote({ numeroLote: e.target.value })}
           />

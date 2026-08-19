@@ -1,17 +1,89 @@
 :root {
   color-scheme: light;
-  --bg: #f4f6f8;
+
+  --bg: #f3f7f7;
   --surface: #ffffff;
-  --border: #dde3ea;
-  --text: #1c2733;
-  --text-muted: #5b6b7c;
-  --primary: #0a5f8c;
-  --primary-dark: #084a6d;
-  --danger: #b3261e;
-  --danger-bg: #fdecea;
-  --success: #1a7f4f;
-  --radius: 8px;
-  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --surface-raised: #ffffff;
+  --border: #d7e2e2;
+  --text: #152226;
+  --text-muted: #55707a;
+
+  --primary: #0c6478;
+  --primary-dark: #084a5a;
+  --primary-tint: #eaf3f5;
+
+  --danger: #ab241c;
+  --danger-bg: #fbecea;
+  --danger-border: #f0c4bd;
+
+  --success: #1c7a52;
+
+  --code-bg: #0d1b20;
+  --code-text: #dcebee;
+  --code-border: #16323b;
+
+  --shadow-card: 0 1px 2px rgba(15, 35, 40, 0.04), 0 1px 12px rgba(15, 35, 40, 0.05);
+
+  --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  font-family: var(--font-ui);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #0c1416;
+    --surface: #131e21;
+    --surface-raised: #162326;
+    --border: #263539;
+    --text: #e6eef0;
+    --text-muted: #8fa5ac;
+
+    --primary: #146b80;
+    --primary-dark: #8fd4e4;
+    --primary-tint: #14282d;
+
+    --danger: #f2897f;
+    --danger-bg: #2c1917;
+    --danger-border: #4a2723;
+
+    --success: #5cc99a;
+
+    --code-bg: #08151a;
+    --code-text: #d7e9ec;
+    --code-border: #1c2f34;
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 14px rgba(0, 0, 0, 0.25);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0c1416;
+  --surface: #131e21;
+  --surface-raised: #162326;
+  --border: #263539;
+  --text: #e6eef0;
+  --text-muted: #8fa5ac;
+
+  --primary: #57bcd1;
+  --primary-dark: #8fd4e4;
+  --primary-tint: #14282d;
+
+  --danger: #f2897f;
+  --danger-bg: #2c1917;
+  --danger-border: #4a2723;
+
+  --success: #5cc99a;
+
+  --code-bg: #08151a;
+  --code-text: #d7e9ec;
+  --code-border: #1c2f34;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 14px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -27,6 +99,7 @@ body {
 h1, h2, h3, h4 {
   margin: 0 0 0.4em 0;
   color: var(--text);
+  text-wrap: balance;
 }
 
 button {
@@ -36,4 +109,11 @@ button {
 
 input, select {
   font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

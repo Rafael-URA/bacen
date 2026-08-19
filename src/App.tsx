@@ -85,6 +85,7 @@ function App() {
   return (
     <div className="page">
       <header className="page-header">
+        <span className="page-eyebrow">Protótipo navegável</span>
         <h1>Guias TISS — Envio de Lote (SOAP / BC Saúde)</h1>
         <p>
           Preencha os dados abaixo para gerar a mensagem SOAP de envio de lote

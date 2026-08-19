@@ -19,7 +19,7 @@ export function XmlPreview({ xml, errors }: Props) {
     setTimeout(() => setCopiado(false), 2000);
   };
 
-  const baixar = () => {
+  const baixarViaBlob = () => {
     if (!xml) return;
     const blob = new Blob([xml], { type: "application/xml" });
     const url = URL.createObjectURL(blob);
@@ -28,6 +28,35 @@ export function XmlPreview({ xml, errors }: Props) {
     a.download = `guia-tiss-${Date.now()}.xml`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const baixar = async () => {
+    if (!xml) return;
+    const claudeApi = (window as unknown as { claude?: { use?: (name: string) => Promise<unknown> } }).claude;
+    if (!claudeApi?.use) {
+      baixarViaBlob();
+      return;
+    }
+    try {
+      const downloads = await claudeApi.use("downloads");
+      if (!downloads || typeof downloads !== "object" || !("save" in downloads)) {
+        baixarViaBlob();
+        return;
+      }
+      const save = (downloads as { save: (req: { filename: string; data: string }) => Promise<unknown> }).save;
+      try {
+        await save({ filename: `guia-tiss-${Date.now()}.xml`, data: xml });
+      } catch (err) {
+        const code = (err as { code?: string } | undefined)?.code;
+        if (code === "rejected_extension" || code === "extension_not_enabled") {
+          // .xml não está liberado no sandbox de preview: salva como .txt com o mesmo conteúdo.
+          await save({ filename: `guia-tiss-${Date.now()}.txt`, data: xml });
+        }
+        // "declined" ou outros: o usuário recusou ou o recurso está indisponível — não faz nada.
+      }
+    } catch {
+      baixarViaBlob();
+    }
   };
 
   const enviar = async () => {

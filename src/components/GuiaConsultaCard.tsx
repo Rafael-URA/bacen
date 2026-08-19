@@ -57,6 +57,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`registroANS-${guia.id}`}
+            className="mono-field"
             value={guia.registroANS}
             onChange={(e) => onChange({ registroANS: e.target.value })}
           />
@@ -68,6 +69,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`numeroGuiaPrestador-${guia.id}`}
+            className="mono-field"
             value={guia.numeroGuiaPrestador}
             onChange={(e) => onChange({ numeroGuiaPrestador: e.target.value })}
           />
@@ -83,6 +85,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`numeroCarteira-${guia.id}`}
+            className="mono-field"
             value={guia.numeroCarteira}
             onChange={(e) => onChange({ numeroCarteira: e.target.value })}
           />
@@ -137,6 +140,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`cnes-${guia.id}`}
+            className="mono-field"
             value={guia.CNES}
             maxLength={7}
             onChange={(e) => onChange({ CNES: e.target.value.replace(/\D/g, "") })}
@@ -177,6 +181,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`numConselho-${guia.id}`}
+            className="mono-field"
             value={guia.numeroConselho}
             onChange={(e) => onChange({ numeroConselho: e.target.value })}
           />
@@ -203,6 +208,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`cbo-${guia.id}`}
+            className="mono-field"
             value={guia.CBO}
             onChange={(e) => onChange({ CBO: e.target.value })}
           />
@@ -273,6 +279,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`codProc-${guia.id}`}
+            className="mono-field"
             value={guia.codigoProcedimento}
             onChange={(e) => onChange({ codigoProcedimento: e.target.value })}
           />
@@ -284,6 +291,7 @@ export function GuiaConsultaCard({
         >
           <input
             id={`valorProc-${guia.id}`}
+            className="mono-field"
             inputMode="decimal"
             placeholder="150.00"
             value={guia.valorProcedimento}
