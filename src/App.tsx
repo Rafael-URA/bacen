@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
-const APP_PASSWORD = import.meta.env.VITE_APP_PASSWORD
+//const APP_PASSWORD = import.meta.env.VITE_APP_PASSWORD
+const APP_PASSWOR=pil#363#bace
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
