@@ -20,7 +20,7 @@ export function SenhaGate({ children }: { children: ReactNode }) {
     if (SENHA && senha === SENHA) {
       localStorage.setItem(CHAVE_SESSAO, "true");
       setAutenticado(true);
-      setSenha("");
+      setSenha("Pil#363#verc");
       setErro(null);
     } else {
       setErro("Senha incorreta.");
