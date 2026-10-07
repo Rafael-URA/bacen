@@ -16,6 +16,18 @@ Web Service do BC Saúde.
 - Envio opcional via HTTP POST para uma URL de homologação/produção informada
   pelo usuário (útil após obter o WSDL de homologação junto ao BC Saúde).
 
+## Senha de acesso
+
+O app abre com uma tela de senha. A senha vem da variável de ambiente
+`VITE_APP_PASSWORD`, nunca do código:
+
+- Local: copie `.env.example` para `.env.local` e preencha a senha.
+- Vercel: cadastre `VITE_APP_PASSWORD` em Settings → Environment Variables e
+  faça um novo deploy.
+
+Como o site é estático, a senha fica embutida no JavaScript publicado. Ela
+impede o acesso casual, mas não é uma autenticação forte.
+
 ## Rodando localmente
 
 ```bash
